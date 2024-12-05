@@ -243,7 +243,7 @@ func origMain(isOptionSpecified bool) {
 
 	fmt.Println(color.GreenString("成功"))
 
-	fmt.Println(color.GreenString("\n全ての処理が完了しました。READMEの規約を確認した上で、exoファイルをAviUtlにインポートして下さい。"))
+	fmt.Println(color.GreenString("\nAll processing done, import the exo into AviUtl。(located in pjsekai-overlay/dist/'chartid')"))
 }
 
 func main() {
@@ -256,7 +256,7 @@ func main() {
 	origMain(isOptionSpecified)
 
 	if !isOptionSpecified {
-		fmt.Print(color.CyanString("\n何かキーを押すと終了します..."))
+		fmt.Print(color.CyanString("\nPress any key to exit.."))
 
 		before, _ := rawmode.Enable()
 		bufio.NewReader(os.Stdin).ReadByte()
