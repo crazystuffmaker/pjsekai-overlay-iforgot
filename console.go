@@ -15,6 +15,7 @@ func Title() {
         %spjsekai-overlay / プロセカ風動画作成補助ツール%s
         Version: %s%s%s
         Developed by %s名無し｡(@sevenc-nanashi)%s
+        Modified by: uh %scrazystuffmaker%s ya
         https://github.com/sevenc-nanashi/pjsekai-overlay
       %s-------------------------------------------------------------------------------%s
     `))+"\n\n",
@@ -22,6 +23,7 @@ func Title() {
 		RgbColorEscape(0x00afc7), ResetEscape(),
 		RgbColorEscape(0x0f6ea3), pjsekaioverlay.Version, ResetEscape(),
 		RgbColorEscape(0x48b0d5), ResetEscape(),
+                RgbColorEscape(0xa36ceb), ResetEscape(),
 		RgbColorEscape(0xff5a91), ResetEscape(),
 	)
 
