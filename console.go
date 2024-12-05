@@ -12,11 +12,12 @@ func Title() {
 	fmt.Printf(
 		strings.TrimSpace(dedent.Dedent(`
       %s== pjsekai-overlay -----------------------------------------------------------%s
-        %spjsekai-overlay / プロセカ風動画作成補助ツール%s
+        %spjsekai-overlay
         Version: %s%s%s
         Developed by %s名無し｡(@sevenc-nanashi)%s
         https://github.com/sevenc-nanashi/pjsekai-overlay
-        modified by uh crazystuffmaker ya
+        modified by: uh crazystuffmaker ya
+        https://github.com/crazystuffmaker/pjsekai-overlay-iforgot
       %s-------------------------------------------------------------------------------%s
     `))+"\n\n",
 		RgbColorEscape(0x00afc7), ResetEscape(),
