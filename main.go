@@ -40,10 +40,6 @@ func origMain(isOptionSpecified bool) {
 
 	flag.Parse()
 
-	if shouldCheckUpdate() {
-		checkUpdate()
-	}
-
 	if !skipAviutlInstall {
 		success := pjsekaioverlay.TryInstallObject()
 		if success {
