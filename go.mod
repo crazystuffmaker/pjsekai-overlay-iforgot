@@ -2,7 +2,7 @@ module github.com/crazystuffmaker/pjsekai-overlay-iforgot
 
 go 1.20
 
-replace github.com/sevenc-nanashi/pjsekai-overlay => ./
+replace github.com/crazystuffmaker/pjsekai-overlay-iforgot => ./
 
 require (
 	github.com/lithammer/dedent v1.1.0
