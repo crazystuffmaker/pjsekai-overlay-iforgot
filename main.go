@@ -44,7 +44,7 @@ func shouldCheckUpdate() bool {
 
 func checkUpdate() {
 	githubClient := github.NewClient(nil)
-	release, _, err := githubClient.Repositories.GetLatestRelease(context.Background(), "sevenc-nanashi", "pjsekai-overlay")
+	release, _, err := githubClient.Repositories.GetLatestRelease(context.Background(), "crazystuffmaker", "pjsekai-overlay-iforgot")
 	if err != nil {
 		return
 	}
