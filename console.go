@@ -12,7 +12,7 @@ func Title() {
 	fmt.Printf(
 		strings.TrimSpace(dedent.Dedent(`
       %s== pjsekai-overlay -----------------------------------------------------------%s
-        %spjsekai-overlay / プロセカ風動画作成補助ツール%s
+        %spjsekai-overlay%s
         Version: %s%s%s
         Developed by %s名無し｡(@sevenc-nanashi)%s
         Modified by: uh %scrazystuffmaker%s ya
