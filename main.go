@@ -13,7 +13,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/google/go-github/v57/github"
-	"github.com/sevenc-nanashi/pjsekai-overlay/pkg/pjsekaioverlay"
+	"github.com/crazystuffmaker/pjsekai-overlay-iforgot/pkg/pjsekaioverlay"
 	"github.com/srinathh/gokilo/rawmode"
 	"golang.org/x/sys/windows"
 )
