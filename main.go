@@ -103,7 +103,7 @@ func origMain(isOptionSpecified bool) {
 		chartId = flag.Arg(0)
 		fmt.Printf("Chart ID: %s\n", color.GreenString(chartId))
 	} else {
-		fmt.Print("Enter the chart ID 'sekai-best-' and 'chcy-' (Sekai Best charts do not work yet). \n-> ")
+		fmt.Print("Enter the chart ID 'sekai-best-' or 'chcy-' (Sekai Best charts do not work yet). \n-> ")
 		fmt.Scanln(&chartId)
 		fmt.Printf("\033[A\033[2K\r> %s\n", color.GreenString(chartId))
 	}
