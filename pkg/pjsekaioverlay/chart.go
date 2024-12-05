@@ -89,7 +89,7 @@ func FetchLevelData(source Source, level sonolus.LevelInfo) (sonolus.LevelData, 
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		return sonolus.LevelData{}, fmt.Errorf("譜面データが見つかりませんでした。（%d）", resp.StatusCode)
+		return sonolus.LevelData{}, fmt.Errorf("Chart data not found 💔（%d）", resp.StatusCode)
 	}
 
 	var data sonolus.LevelData
