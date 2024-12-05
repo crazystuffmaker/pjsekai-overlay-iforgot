@@ -62,6 +62,12 @@ func DetectChartSource(chartId string) (Source, error) {
 			Color: 0x83ccd2,
 			Host:  "cc.sevenc7c.com",
 		}
+        } else if strings.HasPrefix(chartId, "sekai-best-") {
+		source = Source{
+			Id:    "sekai_best",
+			Name:  "Sekai Best",
+			Color: 0x83ccd2,
+			Host:  "sonolus.sekai.best",
 	}
 	if source.Id == "" {
 		return Source{
