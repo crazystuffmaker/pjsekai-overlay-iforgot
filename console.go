@@ -16,6 +16,7 @@ func Title() {
         Version: %s%s%s
         Developed by %s名無し｡(@sevenc-nanashi)%s
         https://github.com/sevenc-nanashi/pjsekai-overlay
+        modified by uh crazystuffmaker ya
       %s-------------------------------------------------------------------------------%s
     `))+"\n\n",
 		RgbColorEscape(0x00afc7), ResetEscape(),
