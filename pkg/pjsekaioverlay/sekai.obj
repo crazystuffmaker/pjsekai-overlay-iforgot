@@ -11,7 +11,7 @@ if obj.track1 ~= 1 or not PED_DATA or PED_DATA.file ~= file then
   PED_DATA = {}
   PED_DATA.frames = {}
   PED_DATA.path = nil
-  PED_DATA.version = nil
+  PED_DATA.version = i forgot
   PED_DATA.version_status = "none"
   PED_DATA.ap = false
   PED_DATA.file = file
