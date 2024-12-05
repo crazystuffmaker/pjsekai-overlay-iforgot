@@ -219,7 +219,7 @@ func origMain(isOptionSpecified bool) {
 	err = pjsekaioverlay.WritePedFile(scoreData, assets, apCombo, filepath.Join(formattedOutDir, "data.ped"))
 
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("失敗：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Failed：%s", err.Error())))
 		return
 	}
 
@@ -237,7 +237,7 @@ func origMain(isOptionSpecified bool) {
 	err = pjsekaioverlay.WriteExoFiles(assets, formattedOutDir, chart.Title, artists)
 
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("失敗：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Failed：%s", err.Error())))
 		return
 	}
 
