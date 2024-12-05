@@ -18,30 +18,6 @@ import (
 	"golang.org/x/sys/windows"
 )
 
-func shouldCheckUpdate() bool {
-	executablePath, err := os.Executable()
-	if err != nil {
-		return false
-	}
-	updateCheckFile, err := os.OpenFile(filepath.Join(filepath.Dir(executablePath), ".update-check"), os.O_RDONLY, 0666)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return true
-		}
-		return false
-	}
-	defer updateCheckFile.Close()
-
-	scanner := bufio.NewScanner(updateCheckFile)
-	scanner.Scan()
-	lastCheckTime, err := strconv.ParseInt(scanner.Text(), 10, 64)
-	if err != nil {
-		return false
-	}
-
-	return time.Now().Unix()-lastCheckTime > 60*60*24
-}
-
 func origMain(isOptionSpecified bool) {
 	Title()
 
