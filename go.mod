@@ -1,4 +1,4 @@
-module github.com/sevenc-nanashi/pjsekai-overlay
+module github.com/crazystuffmaker/pjsekai-overlay-iforgot
 
 go 1.20
 
