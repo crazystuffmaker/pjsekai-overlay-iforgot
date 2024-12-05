@@ -42,29 +42,6 @@ func shouldCheckUpdate() bool {
 	return time.Now().Unix()-lastCheckTime > 60*60*24
 }
 
-func checkUpdate() {
-	githubClient := github.NewClient(nil)
-	release, _, err := githubClient.Repositories.GetLatestRelease(context.Background(), "sevenc-nanashi", "pjsekai-overlay")
-	if err != nil {
-		return
-	}
-
-	executablePath, err := os.Executable()
-	updateCheckFile, err := os.OpenFile(filepath.Join(filepath.Dir(executablePath), ".update-check"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
-	if err != nil {
-		return
-	}
-	defer updateCheckFile.Close()
-	updateCheckFile.WriteString(strconv.FormatInt(time.Now().Unix(), 10))
-
-	latestVersion := strings.TrimPrefix(release.GetTagName(), "v")
-	if latestVersion == pjsekaioverlay.Version {
-		return
-	}
-	fmt.Printf("新しいバージョンがリリースされています：v%s -> v%s\n", pjsekaioverlay.Version, latestVersion)
-	fmt.Printf("ダウンロード：%s\n", release.GetHTMLURL())
-}
-
 func origMain(isOptionSpecified bool) {
 	Title()
 
