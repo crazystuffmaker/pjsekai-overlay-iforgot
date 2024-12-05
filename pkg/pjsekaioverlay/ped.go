@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/sevenc-nanashi/pjsekai-overlay/pkg/sonolus"
+	"github.com/crazystuffmaker/pjsekai-overlay-iforgot/pkg/sonolus"
 )
 
 type PedFrame struct {
