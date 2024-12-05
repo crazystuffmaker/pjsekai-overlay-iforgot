@@ -2,17 +2,14 @@ package main
 
 import (
 	"bufio"
-	"context"
 	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/fatih/color"
-	"github.com/google/go-github/v57/github"
 	"github.com/crazystuffmaker/pjsekai-overlay-iforgot/pkg/pjsekaioverlay"
 	"github.com/srinathh/gokilo/rawmode"
 	"golang.org/x/sys/windows"
