@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/lithammer/dedent"
-	"github.com/sevenc-nanashi/pjsekai-overlay/pkg/pjsekaioverlay"
+	"github.com/crazystuffmaker/pjsekai-overlay-iforgot/pkg/pjsekaioverlay"
 )
 
 func Title() {
