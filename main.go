@@ -103,25 +103,25 @@ func origMain(isOptionSpecified bool) {
 		chartId = flag.Arg(0)
 		fmt.Printf("Chart ID: %s\n", color.GreenString(chartId))
 	} else {
-		fmt.Print("Enter the chart ID (sekai-best- and chcy- (Sekai Best charts do not work yet)). \n> ")
+		fmt.Print("Enter the chart ID 'sekai-best-' and 'chcy-' (Sekai Best charts do not work yet). \n-> ")
 		fmt.Scanln(&chartId)
 		fmt.Printf("\033[A\033[2K\r> %s\n", color.GreenString(chartId))
 	}
 
 	chartSource, err := pjsekaioverlay.DetectChartSource(chartId)
 	if err != nil {
-		fmt.Println(color.RedString("The server for the chart could not be found. Please enter the correct chart ID, including the prefix."))
+		fmt.Println(color.RedString("The server for the chart could not be found. Please enter the correct chart ID, including the prefix.."))
 		return
 	}
 	fmt.Printf("%s%s%s Downloading chart sheet... ", RgbColorEscape(chartSource.Color), chartSource.Name, ResetEscape())
 	chart, err := pjsekaioverlay.FetchChart(chartSource, chartId)
 
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("Fail：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Fail: %s", err.Error())))
 		return
 	}
 	if chart.Engine.Version != 12 {
-		fmt.Println(color.RedString(fmt.Sprintf("Fail：The engine is not supported! (version %d）", chart.Engine.Version)))
+		fmt.Println(color.RedString(fmt.Sprintf("Fail: The engine is not supported! (version %d）", chart.Engine.Version)))
 		return
 	}
 
@@ -136,7 +136,7 @@ func origMain(isOptionSpecified bool) {
 	fmt.Printf("Getting exe path... ")
 	executablePath, err := os.Executable()
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("Fail：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Fail: %s", err.Error())))
 		return
 	}
 
@@ -145,7 +145,7 @@ func origMain(isOptionSpecified bool) {
 	cwd, err := os.Getwd()
 
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("Fail：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Fail: %s", err.Error())))
 		return
 	}
 
@@ -155,7 +155,7 @@ func origMain(isOptionSpecified bool) {
 	fmt.Print("Downloading cover image... ")
 	err = pjsekaioverlay.DownloadCover(chartSource, chart, formattedOutDir)
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("Fail：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Fail: %s", err.Error())))
 		return
 	}
 
@@ -164,7 +164,7 @@ func origMain(isOptionSpecified bool) {
 	fmt.Print("Downloading background image... ")
 	err = pjsekaioverlay.DownloadBackground(chartSource, chart, formattedOutDir)
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("Fail：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Fail: %s", err.Error())))
 		return
 	}
 
@@ -174,19 +174,19 @@ func origMain(isOptionSpecified bool) {
 	levelData, err := pjsekaioverlay.FetchLevelData(chartSource, chart)
 
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("Fail：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Fail: %s", err.Error())))
 		return
 	}
 
 	fmt.Println(color.GreenString("Success"))
 
 	if !isOptionSpecified {
-		fmt.Print("Please specify your team power.\n> ")
+		fmt.Print("Please specify your team power.\n-> ")
 		var tmpTeamPower string
 		fmt.Scanln(&tmpTeamPower)
 		teamPower, err = strconv.Atoi(tmpTeamPower)
 		if err != nil {
-			fmt.Println(color.RedString(fmt.Sprintf("Fail：%s", err.Error())))
+			fmt.Println(color.RedString(fmt.Sprintf("Fail: %s", err.Error())))
 			return
 		}
 		fmt.Printf("\033[A\033[2K\r> %s\n", color.GreenString(tmpTeamPower))
@@ -199,7 +199,7 @@ func origMain(isOptionSpecified bool) {
 	fmt.Println(color.GreenString("Success"))
 
 	if !isOptionSpecified {
-		fmt.Print("Enable AP combo？ (Y/n)\n> ")
+		fmt.Print("Enable AP combo？ (Y/n)\n-> ")
 		before, _ := rawmode.Enable()
 		tmpEnableComboApByte, _ := bufio.NewReader(os.Stdin).ReadByte()
 		tmpEnableComboAp := string(tmpEnableComboApByte)
@@ -219,7 +219,7 @@ func origMain(isOptionSpecified bool) {
 	err = pjsekaioverlay.WritePedFile(scoreData, assets, apCombo, filepath.Join(formattedOutDir, "data.ped"))
 
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("Failed：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Failed: %s", err.Error())))
 		return
 	}
 
@@ -232,18 +232,18 @@ func origMain(isOptionSpecified bool) {
 		composerAndVocals = separateAttempt
 	}
 
-	artists := fmt.Sprintf("作詞：？    作曲：%s    編曲：？\r\nVo：%s   譜面作成：%s", composerAndVocals[0], composerAndVocals[1], chart.Author)
+	artists := fmt.Sprintf("作詞：ー    作曲：%s    編曲：ー\r\nVo：%s   ", composerAndVocals[0], composerAndVocals[1], chart.Author)
 
 	err = pjsekaioverlay.WriteExoFiles(assets, formattedOutDir, chart.Title, artists)
 
 	if err != nil {
-		fmt.Println(color.RedString(fmt.Sprintf("Failed：%s", err.Error())))
+		fmt.Println(color.RedString(fmt.Sprintf("Failed: %s", err.Error())))
 		return
 	}
 
 	fmt.Println(color.GreenString("Success"))
 
-	fmt.Println(color.GreenString("\nAll processing done, import the exo into AviUtl.(located in pjsekai-overlay/dist/'chartid')"))
+	fmt.Println(color.GreenString("\nAll processing done, import the exo into AviUtl.(located in pjsekai-overlay/dist/chcy-'chartid')"))
 }
 
 func main() {
